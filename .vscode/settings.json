@@ -70,5 +70,6 @@
     "characters.h": "c",
     "game.h": "c",
     "player.h": "c"
-  }
+  },
+  "makefile.configureOnOpen": true
 }

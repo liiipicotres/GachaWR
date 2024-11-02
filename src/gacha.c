@@ -58,7 +58,7 @@ void printGachaMenu(tPlayer *player)
     bool *retCondition = malloc(sizeof(bool)); // liiipicotres: if false, won't finish the loop
 
     Sleep(300);
-    printf("Gacha system\n");
+    //printf("Gacha system\n");
 
     do
     {
@@ -103,4 +103,10 @@ void printGachaMenu(tPlayer *player)
         printf("Exit\n");
         break;
     }
+
+    free(option);
+    free(retCondition);
+
+    option = NULL;
+    retCondition = NULL;
 }

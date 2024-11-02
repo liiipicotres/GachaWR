@@ -182,10 +182,10 @@ CLoseWindow() //Close first layer
 
 int main(void)
 {
-    InitWindow(400, 200, "raygui - controls test suite");
+    InitWindow(1920, 1080, "OROPEL");
     SetTargetFPS(60);
 
-    bool showMessageBox = false;
+    //bool showMessageBox = false;
 
     while (!WindowShouldClose())
     {
@@ -193,16 +193,22 @@ int main(void)
         //----------------------------------------------------------------------------------
         BeginDrawing();
             //ClearBackground(GetColor(GuiGetStyle(DEFAULT, BACKGROUND_COLOR)));
-            ClearBackground(RED);
-            if (GuiButton((Rectangle){ 94, 24, 120, 30 }, "#191#Show Message")) showMessageBox = true;
+            ClearBackground(WHITE);
+            
+            //NO AUTOLAYOUT?
+            if (GuiButton((Rectangle){ 760, 740, 400, 200 }, GuiIconText(ICON_1UP, "HOLUP")))  true;
+            
+            
 
-            if (showMessageBox)
-            {
-                int result = GuiMessageBox((Rectangle){ 85, 70, 250, 100 },
-                    "#191#Message Box", "Hi! This is a message!", "Nice;Cool");
 
-                if (result >= 0) showMessageBox = false;
-            }
+            // RRR ---------------------------------------------
+          //  if (showMessageBox)
+           // {
+             //   int result = GuiMessageBox((Rectangle){ 85, 70, 250, 100 },
+               //     "#191#Message Box", "Hi! This is a message!", "Nice;Cool");
+
+                //if (result >= 0) showMessageBox = false;
+            //}
 
         EndDrawing();
     }
@@ -213,13 +219,17 @@ int main(void)
 
 
 /*
-int main()
-{
 
+
+
+
+int main(void)
+{
+    printf("Hello, World!\n");
   setCharactersAtBase(characters);
   char *aux = NULL;
   storeFile(&characters[2], aux);
-  
+  free(aux);
   tPlayer jugador;
   jugador.currency = 50555;
   strcpy(jugador.name, "Liiipicotres");
@@ -234,6 +244,7 @@ int main()
 
     return 0;
 }
+
 
 
 */
