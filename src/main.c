@@ -8,7 +8,7 @@
 #include "../include/gacha.h"
 
 
-
+//
 
 typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
 
