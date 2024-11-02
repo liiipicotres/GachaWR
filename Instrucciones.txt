@@ -1,0 +1,20 @@
+//////Linux
+//Open directory in terminal
+//cd build
+//./premake5 gmake2
+//cd ../
+//make
+//cd
+//cd bin/Debug
+//./GachaWR
+//
+//run RUN/run.sh in terminal if lazy
+//
+////////////
+//////Windows
+//
+//
+//
+//
+//
+//////
