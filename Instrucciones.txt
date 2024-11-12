@@ -6,7 +6,7 @@
 //make
 //cd
 //cd bin/Debug
-//./GachaWR
+//./OROPEL
 //
 //run RUN/run.sh in terminal if lazy
 //
