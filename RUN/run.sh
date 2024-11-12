@@ -6,7 +6,7 @@ cd build
 cd ../
 make
 cd bin/Debug
-./GachaWR
+./OROPEL
 
 
 #!gcc -o main main.c characters.c game.c player.c gacha.c -I. Lets leave this just in case I need it later
