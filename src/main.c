@@ -6,8 +6,8 @@
 #include "../include/game.h"
 #include "../include/player.h"
 #include "../include/gacha.h"
-
-
+#include "../include/raylib.h"
+#include "../include/graphics.h"
 //
 
 typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
@@ -15,16 +15,16 @@ typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
 //------------------------------------------------------------------------------------
 // Program main entry point
 //------------------------------------------------------------------------------------
-/*int main(void)
+int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
     const int screenWidth = 800;
     const int screenHeight = 450;
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic screen manager");
+    InitWindow(screenWidth, screenHeight, "OROPEL");
 
-    GameScreen currentScreen = LOGO;
+    GameScreen currentScreen = TITLE;
 
     // TODO: Initialize all required variables and load all required data here!
 
@@ -40,7 +40,7 @@ typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
         //----------------------------------------------------------------------------------
         switch(currentScreen)
         {
-            case LOGO:
+           /* case LOGO:
             {
                 // TODO: Update LOGO screen variables here!
 
@@ -52,25 +52,32 @@ typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
                     currentScreen = TITLE;
                 }
             } break;
-            case TITLE:
+*/            case TITLE:
             {
                 // TODO: Update TITLE screen variables here!
 
                 // Press enter to change to GAMEPLAY screen
-                if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP))
+                /*if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP))
                 {
                     currentScreen = GAMEPLAY;
-                }
+                }*/ 
+                    if(GetKeyPressed() == KEY_THREE) currentScreen = GAMEPLAY;
+
+                //   selectOption();
             } break;
             case GAMEPLAY:
             {
                 // TODO: Update GAMEPLAY screen variables here!
 
                 // Press enter to change to ENDING screen
-                if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP))
+                /*if (IsKeyPressed(KEY_ENTER) || IsGestureDetected(GESTURE_TAP))
                 {
                     currentScreen = ENDING;
-                }
+                }*/
+                selectOption();
+                if(GetKeyPressed() == KEY_B) currentScreen = TITLE;
+                //if(GetKeyPressed() == KEY_FOUR) EndDrawing(); 
+               
             } break;
             case ENDING:
             {
@@ -99,22 +106,22 @@ typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
                     // TODO: Draw LOGO screen here!
                     DrawText("LOGO SCREEN", 20, 20, 40, LIGHTGRAY);
                     DrawText("WAIT for 2 SECONDS...", 290, 220, 20, GRAY);
+                    drawMainMenu();
 
                 } break;
                 case TITLE:
                 {
                     // TODO: Draw TITLE screen here!
-                    DrawRectangle(0, 0, screenWidth, screenHeight, GREEN);
-                    DrawText("TITLE SCREEN", 20, 20, 40, DARKGREEN);
-                    DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, DARKGREEN);
+                    DrawRectangle(0, 0, screenWidth, screenHeight, WHITE);
+                   // DrawText("TITLE SCREEN", 20, 20, 40, DARKGREEN);
+                   // DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, DARKGREEN);
+                    drawMainMenu();
+                    
 
                 } break;
                 case GAMEPLAY:
                 {
-                    // TODO: Draw GAMEPLAY screen here!
-                    DrawRectangle(0, 0, screenWidth, screenHeight, PURPLE);
-                    DrawText("GAMEPLAY SCREEN", 20, 20, 40, MAROON);
-                    DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, MAROON);
+                   selectOption();
 
                 } break;
                 case ENDING:
@@ -143,86 +150,16 @@ typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
     return 0;
 }
 
-*/
 
 
 
 
 
-#define RAYGUI_IMPLEMENTATION
-#include "../include/raygui.h"
-
-//GuiButton: int x, int y, int width, int height, Color color
-/*
-
-InitWindow(width, height) // Init first layer
-    BeginDrawing() // Init second layer
-
-        ClearBackground(BACKGROUND_COLOUR) // Sets the color of the background
-            --> BACKGROUND_COLOUR can also be GetColor(HEXADECIMAL_VALUE) or even GetColor(GuiGetStyle())
-        GuiButton(bounds, textMessage) // Inits a button with a message and a rectangle
-            --> bounds must be a Rectangle type 
-            --> bounds consist of (int x, int y, int width, int height)
-            --> can use a convertion like that: (Rectangle){ 94, 24, 120, 30 }
-            --> textMessage is the message that will be displayed on the button 
-            !!--> returns a boolean value if the button is pressed
-        GuiMessageBox(bounds, title, message, buttons) // Inits a message box with a title, a message and buttons
-            --> bounds must be a Rectangle type
-            !!--> if the button string contains a ; it will be separated into different buttons
 
 
-    EndDrawing() //Close second layer
-
-CLoseWindow() //Close first layer
-
-
-
-
-*/
-
-int main(void)
-{
-    InitWindow(1920, 1080, "OROPEL");
-    SetTargetFPS(60);
-
-    //bool showMessageBox = false;
-
-    while (!WindowShouldClose())
-    {
-        // Draw
-        //----------------------------------------------------------------------------------
-        BeginDrawing();
-            //ClearBackground(GetColor(GuiGetStyle(DEFAULT, BACKGROUND_COLOR)));
-            ClearBackground(WHITE);
-            
-            //NO AUTOLAYOUT?
-            if (GuiButton((Rectangle){ 760, 740, 400, 200 }, GuiIconText(ICON_1UP, "HOLUP")))  true;
-            
-            
-
-
-            // RRR ---------------------------------------------
-          //  if (showMessageBox)
-           // {
-             //   int result = GuiMessageBox((Rectangle){ 85, 70, 250, 100 },
-               //     "#191#Message Box", "Hi! This is a message!", "Nice;Cool");
-
-                //if (result >= 0) showMessageBox = false;
-            //}
-
-        EndDrawing();
-    }
-
-    CloseWindow();
-    return 0;
-}
 
 
 /*
-
-
-
-
 int main(void)
 {
     printf("Hello, World!\n");
