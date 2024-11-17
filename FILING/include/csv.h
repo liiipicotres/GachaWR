@@ -21,7 +21,6 @@ typedef struct {
     char **fields;
     
 
-
 } tCSVEntry;
 
 typedef struct {
@@ -47,10 +46,10 @@ void csv_write(const char *filename, tCSVEntry *data);
 
 void csvData_write(const char *filename, tCSVData *data);
 
-void csv_print(tCSVData *data);
+void csv_print(tCSVData data);
 
-void csv_add_entry(tCSVData *data, const char *name, const char *value);
+void csv_add_entry(tCSVData *data, tCSVEntry entry);
 
-void csv_remove_entry(tCSVData *data, const char *name);
+void csv_remove_entry(tCSVData *data, tCSVEntry entry);
 
 void csv_remove_all_entries(tCSVData *data);
